@@ -99,11 +99,11 @@ class PlaybackControlSkill(MycroftSkill):
         for k in STATUS_KEYS:
             self.gui[k] = ''
 
-    @intent_handler(IntentBuilder('').require('Next').require("Track"))
+    @intent_handler(IntentBuilder('').require('Next').optionally("Track"))
     def handle_next(self, message):
         self.audio_service.next()
 
-    @intent_handler(IntentBuilder('').require('Prev').require("Track"))
+    @intent_handler(IntentBuilder('').require('Prev').optionally("Track"))
     def handle_prev(self, message):
         self.audio_service.prev()
 
